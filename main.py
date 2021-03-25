@@ -1,8 +1,8 @@
 
 import json
 from py2neo import Graph
-# graph = Graph("bolt://localhost:7687", auth=("neo4j", "1234"))
-null =None
+graph = Graph("bolt://localhost:7687", auth=("neo4j", "1234"))
+# null =None
 with open('./codebeautify.json', encoding='utf-8') as f:
 
 	# print(f)
@@ -10,7 +10,7 @@ with open('./codebeautify.json', encoding='utf-8') as f:
 f.close()
 
 
-
+# to Create a new node
 def addNode(data):
 	query = "create(n"
 
@@ -39,6 +39,7 @@ def addNode(data):
 	# print(query)
 	graph.run(query)
 
+# to Create a realtionship
 def addRelation(data):
 	query = "MATCH (node1:"+data["FromLabel"]+"),(node2:"+data["ToLabel"]+") CREATE (node1)-[relation"
 	midQuery = " "
