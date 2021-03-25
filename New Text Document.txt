@@ -1,0 +1,6 @@
+docker --version
+docker images
+docker ps
+docker run -d --name my-neo4j --publish=7474:7474 --publish=7687:7687 --volume=$HOME/neo4j/data:/data neo4j
+docker exec -it my-neo4j sh
+cypher-shell
